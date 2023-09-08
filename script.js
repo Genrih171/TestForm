@@ -9,7 +9,6 @@ const communicationLabels = communicationField.querySelectorAll('.communication_
 const personalDataCheckbox = feedbackForm.querySelector('.data_checkbox');
 const personalDataLabel = feedbackForm.querySelector('.data_label');
 
-
 const processingRules = document.querySelector('.processing_rules');
 const processingRulesLink = feedbackForm.querySelector('.processing_rules-link');
 
@@ -48,10 +47,38 @@ IMask(userPhoneInput, {
 
 processingRulesLink.addEventListener('click', () => processingRules.classList.toggle('hidden'));
 
+// ------------------nodemailer
+
+const nodemailer = require('nodemailer');
+
+const transporter = nodemailer.createTransport({
+  host: 'smtp.gmail.com', // адрес вашего SMTP-сервера
+  port: 465, // порт SMTP
+  secure: true, // true, если используется SSL/TLS
+  auth: {
+  user: 'genrih171@gmail.com',
+  pass: 'Fyfcnfcbz171!' 
+  }
+});
+
+async function sendForm() {
+  const info = await transporter.sendMail({
+    from: '<genrih171@gmail.com>',
+    to: "genrih171@rambler.ru",
+    subject: "Обратная связь", // Subject line
+    text: "Hello world?", // plain text body
+  });
+
+  console.log("Message sent: %s", info.messageId);
+}
+
+// ------------------------------
+
 feedbackForm.addEventListener('submit', (evt) => {
   evt.preventDefault();
   if (formValidation()) {
-    console.log(new FormData(feedbackForm));
+    // console.log(new FormData(feedbackForm));
+    sendForm();
   }
 });
 
