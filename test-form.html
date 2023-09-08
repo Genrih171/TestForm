@@ -12,24 +12,24 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/imask"></script>
 </head>
-<body class="page-body">
+<body class="page_body">
     <div class="wrapper">
         <div class="wrapper_form">
             <form method="post" enctype="text/plain" name="feedback-form">
-                <h1 class="title-form">Обратная связь</h1>
+                <h1 class="title_form">Обратная связь</h1>
                 <p>Оставьте ваши контактные данные и мы свяжемся с вами в течение одного рабочего дня</p>
                 <input class="user_name" name="userName" type="text" placeholder="Имя" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Имя'">
                 <input class="user_phone" name="userPhone" type="text">
-                <h2 class="title-communication">Выберите удобный способ связи:</h2>
+                <h2 class="title_communication">Выберите удобный способ связи:</h2>
                 <div class="communication">
                     <input class="communication_button hidden" type="radio" name="communication" id="recall" value="recall">
                     <label class="communication_label" for="recall">перезвонить</label>
                     <input class="communication_button hidden" type="radio" name="communication" id="telegram" value="telegram">
                     <label class="communication_label" for="telegram">написать в Telegram</label>
                 </div>
-                <input type="submit" value="Отправить">
-                <input class="data-checkbox hidden" type="checkbox" id="personal-data">
-                <label class="data-label" for="personal-data"></label>
+                <input class="submit_button" type="submit" value="Отправить">
+                <input class="data_checkbox hidden" type="checkbox" id="personal-data">
+                <label class="data_label" for="personal-data"></label>
                 <p class="agreement">я согласен с <a class="processing_rules-link" href="#">правилами обработки</a> моих персональных данных</p>
             </form>            
         </div>

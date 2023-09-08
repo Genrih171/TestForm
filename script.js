@@ -6,8 +6,8 @@ const userPhoneInput = feedbackForm.querySelector('.user_phone');
 const communicationField = feedbackForm.querySelector('.communication');
 const communicationButtons = communicationField.querySelectorAll('.communication_button');
 const communicationLabels = communicationField.querySelectorAll('.communication_label')
-const personalDataCheckbox = feedbackForm.querySelector('.data-checkbox');
-const personalDataLabel = feedbackForm.querySelector('.data-label');
+const personalDataCheckbox = feedbackForm.querySelector('.data_checkbox');
+const personalDataLabel = feedbackForm.querySelector('.data_label');
 
 
 const processingRules = document.querySelector('.processing_rules');
@@ -41,7 +41,7 @@ const formValidation = () => {
 };
 
 IMask(userPhoneInput, {
-  mask: '+{7}(000)000-00-00',
+  mask: '+{7}(000) 000-00-00',
   lazy: false,
 }
 )

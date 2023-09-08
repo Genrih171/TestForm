@@ -26,7 +26,6 @@ h1, h2, h3, h4, h5, h6, p {
 button, input[type="submit"] {
     display: inline-block;
     box-shadow: none;
-    background: none;
     cursor: pointer;
 }
 
@@ -48,7 +47,7 @@ label {
     height: 0;
 }
 
-.page-body {
+.page_body {
     font-family: 'Montserrat', sans-serif;
     font-size: 15px;
     font-weight: 400;
@@ -70,7 +69,7 @@ label {
     width: 400px;
 }
 
-.title-form {
+.title_form {
     font-size: 40px;
     font-weight: 600;
     margin-bottom: 6px;
@@ -106,7 +105,7 @@ label {
     color: #000;
 }
 
-.title-communication {
+.title_communication {
     margin-bottom: 16px;
 }
 
@@ -131,7 +130,7 @@ label {
 }
 
 .communication_label::before,
-.data-label::before {
+.data_label::before {
     content: '';
     display: inline-block;
     width: 30px;
@@ -148,7 +147,7 @@ label {
 }
 
 .communication_label::after,
-.data-label::after {
+.data_label::after {
     visibility: hidden;
     content: '';
     display: inline-block;
@@ -162,7 +161,7 @@ label {
     visibility: visible;
 }
 
-input[type="submit"] {
+.submit_button {
     font-family: inherit;
     font-size: 20px;
     font-weight: 700;
@@ -175,22 +174,22 @@ input[type="submit"] {
     box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.10);
 }
 
-input[type="submit"]:hover {
+.submit_button:hover {
     background: #DB0000;
 }
 
-.data-label::before {
+.data_label::before {
     border-radius: 5px;
 }
 
-.data-label::after {
+.data_label::after {
     position: relative;
     bottom: 4px;
     right: 26px;
     border-radius: 5px;
 }
 
-.data-checkbox:checked + .data-label::after {
+.data_checkbox:checked + .data_label::after {
     visibility: visible;
 }
 
@@ -235,7 +234,7 @@ input[type="submit"]:hover {
 /* ---------------------Адаптив----------------------------- */
 
 @media (max-width: 320px) {
-    .page-body {
+    .page_body {
         font-size: 12px;
     }
 
@@ -252,7 +251,7 @@ input[type="submit"]:hover {
         padding-right: 10px;
     }
 
-    .title-form {
+    .title_form {
         font-size: 25px;
     }
 
@@ -262,7 +261,7 @@ input[type="submit"]:hover {
         font-size: 15px;
     }
 
-    input[type="submit"] {
+    .submit_button {
         height: 40px;
         font-size: 15px;
     }
