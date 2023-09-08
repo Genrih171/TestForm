@@ -26,7 +26,6 @@ h1, h2, h3, h4, h5, h6, p {
 button, input[type="submit"] {
     display: inline-block;
     box-shadow: none;
-    background-color: transparent;
     background: none;
     cursor: pointer;
 }
@@ -38,11 +37,6 @@ button:focus, button:active {
 
 label {
 	cursor: pointer;
-}
-
-input:focus::-webkit-input-placeholder,
-input:focus::-moz-placeholder {
-    color: transparent
 }
 
 /* ------------------------Форма-------------------------- */
@@ -126,11 +120,14 @@ input:focus::-moz-placeholder {
 }
 
 .communication_label {
-    position: relative;
     display: inline-flex;
     align-items: center;
     user-select: none;
     margin-bottom: 34px;
+}
+
+.communication_label::before {
+    margin-right: 11px;
 }
 
 .communication_label::before,
@@ -140,16 +137,19 @@ input:focus::-moz-placeholder {
     width: 30px;
     height: 30px;
     border-radius: 15px;
-    margin-right: 11px;
     border: 1px solid rgba(162, 159, 158, 0.30); 
     box-shadow: 0px 0px 80px 0px rgba(0, 0, 0, 0.40);
+}
+
+.communication_label::after {
+    position: absolute;
+    margin-left: 4px;
+
 }
 
 .communication_label::after,
 .data-label::after {
     visibility: hidden;
-    position: absolute;
-    margin-left: 4px;
     content: '';
     display: inline-block;
     width: 22px;
@@ -180,12 +180,13 @@ input[type="submit"]:hover {
 }
 
 .data-label::before {
-    position: absolute;
     border-radius: 5px;
 }
 
 .data-label::after {
-    margin-top: 4px;
+    position: relative;
+    bottom: 4px;
+    right: 26px;
     border-radius: 5px;
 }
 
@@ -194,6 +195,8 @@ input[type="submit"]:hover {
 }
 
 .agreement {
+    position: relative;
+    bottom: 35px;
     margin-top: 6px;
     margin-left: 41px;
 }
