@@ -39,7 +39,7 @@ const formValidation = () => {
   return isValid;
 };
 
-IMask(userPhoneInput, {
+const mask = IMask(userPhoneInput, {
   mask: '+{7}(000) 000-00-00',
   lazy: false,
 }
@@ -47,38 +47,31 @@ IMask(userPhoneInput, {
 
 processingRulesLink.addEventListener('click', () => processingRules.classList.toggle('hidden'));
 
-// ------------------nodemailer
-
-const nodemailer = require('nodemailer');
-
-const transporter = nodemailer.createTransport({
-  host: 'smtp.gmail.com', // адрес вашего SMTP-сервера
-  port: 465, // порт SMTP
-  secure: true, // true, если используется SSL/TLS
-  auth: {
-  user: 'genrih171@gmail.com',
-  pass: 'Fyfcnfcbz171!' 
-  }
-});
-
-async function sendForm() {
-  const info = await transporter.sendMail({
-    from: '<genrih171@gmail.com>',
-    to: "genrih171@rambler.ru",
-    subject: "Обратная связь", // Subject line
-    text: "Hello world?", // plain text body
-  });
-
-  console.log("Message sent: %s", info.messageId);
-}
-
-// ------------------------------
+const formReset = () => {
+  userNameInput.value = '';
+  mask.value = '';
+  communicationButtons.forEach((el) => el.checked = false);
+  personalDataCheckbox.checked = false;
+};
 
 feedbackForm.addEventListener('submit', (evt) => {
   evt.preventDefault();
   if (formValidation()) {
-    // console.log(new FormData(feedbackForm));
     sendForm();
   }
 });
 
+async function sendForm () {
+  const formData = new FormData(feedbackForm);
+  const response = await fetch('sendform.php', {
+    method: 'POST',
+    body: formData,
+  });
+  if (response.ok) {
+    const result = await response.json();
+    console.log(result.message);
+    formReset();
+  } else {
+    console.log(result.message);
+  }
+}
